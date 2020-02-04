@@ -15,7 +15,6 @@ web.set_window_size(800, 1045)
 web.get(host)
 
 
-# 等待元素出現
 def wait(element):
     try:
         WebDriverWait(web, 20).until(
@@ -27,18 +26,13 @@ def wait(element):
     return
 
 
-# click
 def click(btn):
-    # print(btn)
     wait(btn)
     newbtn = web.find_element_by_css_selector(btn)
     web.execute_script("arguments[0].click();", newbtn)
-    # ActionChains(web).move_to_element(newbtn).click(newbtn).perform()
-    # web.find_element_by_css_selector(btn).click()
     return
 
 
-# 登入
 def login(user, pwd):
     click(
         'body > div.position-relative.js-header-wrapper > header > div > div.HeaderMenu.HeaderMenu--logged-out.position-fixed.top-0.right-0.bottom-0.height-fit.position-lg-relative.d-lg-flex.flex-justify-between.flex-items-center.flex-auto > div.d-lg-flex.flex-items-center.px-3.px-lg-0.text-center.text-lg-left > a.HeaderMenu-link.no-underline.mr-3')
